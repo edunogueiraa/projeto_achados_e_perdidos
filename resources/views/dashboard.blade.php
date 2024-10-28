@@ -1,21 +1,48 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Slide 1 - Achados e Perdidos</title>
-    @vite('resources/css/styles.css')
-</head>
-<body>
+@extends('layouts.app')
+ 
+@section('title', 'Dashboard')
 
-<header>
-    <h1>Achados e Perdidos</h1>
-</header>
+@section('style')
+<style>
+    body{
+        background-image: url("{{ asset('img/Items.png') }}");
+        background-size: 100%;  /* A imagem cobrirá todo o fundo */
+        background-position: center; /* Centraliza a imagem */
+    }
+</style>
+@endsection
 
-<section class="inicio">
-    <h2>Bem-vindo ao Achados e Perdidos</h2>
-    <p>IFRN - Campus Caicó</p>
-    <input type="text" placeholder="Digite aqui o que deseja encontrar">
-    <a href="{{ url('slide2') }}" class="btn">proximo</a>
-</body>
-</html>
+@section('main')
+    <section>
+        <div class="container">
+            <div class="row justify-content-center"> <!-- Centralizar as colunas -->
+                @foreach ($items as $item)
+                    <div class="col-md-4 d-flex justify-content-center mb-4"> <!-- Centralizar os cards -->
+                        <a href="{{ url('/item/' . $item->id . '/show') }}" class="text-decoration-none">
+                            <div class="card"> <!-- Centralizar o conteúdo do card -->
+                                <div class="card-body d-flex flex-column"> <!-- Centralizar o conteúdo internamente -->
+                                    <img src="{{$item->img}}" alt="{{$item->nome}}" class="mb-3 d-block mx-auto" style="width: 150px; height: 150px; object-fit: cover;">
+                                    <h4 class="text-dark">Nome: {{$item->nome}}</h4>
+                                    <p class="text-dark"><b>Descrição: </b>{{$item->descricao}}</p>
+                                    <p class="text-dark"><b>Data adicionada: </b><i>{{$item->data_cadastro}}</i></p>
+                                    @if (Auth::user()->type === 'admin')
+                                        <div class="d-flex mt-3 justify-content-center align-items-center">
+                                            <a href="{{ url('/item/' . $item->id . '/edit') }}" class="btn btn-primary me-2">Editar</a>
+                                            <form action="{{ url('/item/' . $item->id . '/delete') }}" method="POST">
+                                                @csrf
+                                                @method('DELETE')
+                                                <input type="submit" value="Delete" class="btn btn-danger"> <!-- Adiciona espaço à direita -->
+                                            </form>
+                                        </div>            
+                                    @endif
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                @endforeach
+            </div>
+        </div>
+    </section>
+
+@endsection
+
