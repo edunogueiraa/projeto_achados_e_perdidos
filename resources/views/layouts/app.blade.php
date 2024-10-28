@@ -88,8 +88,6 @@
     <!-- Footer que não é fixo, sempre ao final do conteúdo -->
     <footer>
         <p>&copy; 2024 IFRN. Todos os direitos reservados.</p>
-        <h1>!!!Matias o MELHOR!!!</h1>
-        <small><i>Um beijão de Pedro</i></small>
     </footer>
 </body>
 </html>

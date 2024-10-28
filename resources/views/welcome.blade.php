@@ -126,28 +126,22 @@
                     <div class="carousel-item active">
                         <img src="{{ asset('alunos/Ianny.jpg') }}" class="d-block mx-auto" alt="Criador 1">
                         <h5>Ianny Daniely</h5>
-                        <p>Menina de Deus e gosta de ler.</p>
                     </div>
                     <div class="carousel-item">
                         <img src="{{ asset('alunos/Ingridy.jpeg') }}" class="d-block mx-auto" alt="Criador 2">
                         <h5>Ingridy Gabriely</h5>
-                        <p>Gosta de estudar é amar jogo de cartas.</p>
                     </div>
                     <div class="carousel-item">
                         <img src="{{ asset('alunos/Eduardo.jpeg') }}" class="d-block mx-auto" alt="Criador 3">
                         <h5>Eduardo Nogueira</h5>
-                        <p>O gatinho do projeto!</p>
                     </div>
                     <div class="carousel-item">
                         <img src="{{ asset('alunos/Katarina.jpg') }}" class="d-block mx-auto" alt="Criador 4">
                         <h5>Katarina Beatriz</h5>
-                        <p>Menina de Deus e gosta de ler.</p>
                     </div>
                     <div class="carousel-item">
                         <img src="{{ asset('alunos/Matias.jpeg') }}" class="d-block mx-auto" alt="Criador 5" >
                         <h5>Matias Medeiros</h5>
-                        <p>Alto, Bonito e Musculoso. <small><i>Gostoso</i></small></p>
-                        <p><i><small>OBS:O bixinho é luadson</small></i></p>
                     </div>
                 </div>
                 <button class="carousel-control-prev" type="button" data-bs-target="#creatorsCarousel" data-bs-slide="prev">
