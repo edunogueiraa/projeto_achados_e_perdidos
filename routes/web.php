@@ -2,6 +2,7 @@
 // Imports padroes
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 // Imports de Middleware
 use App\Http\Middleware\AdmMiddleware;
 // Imports dos Controllers
@@ -19,10 +20,11 @@ Route::view('/forms', 'layouts.forms');
 
 // Rotas Basicas
 Route::view('/', 'welcome')->middleware('guest');
+
 Route::get('/dashboard', function() {
     $items = Item::all();
     return view('dashboard', compact('items'));
-})->middleware(['auth', 'verified']);
+})->middleware(['auth', 'verified'])->name('dashboard');
 
 // Rotas Login/Registro de Usuarios 
 Route::prefix('user')->middleware('guest')->controller(RegisteredUserController::class)->group(function () {
