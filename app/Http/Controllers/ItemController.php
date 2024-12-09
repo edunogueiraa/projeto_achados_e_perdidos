@@ -74,11 +74,32 @@ class ItemController extends Controller
     /**
      * Update the specified resource in storage.
      */
+    // public function update(Request $request, Item $item)
+    // {
+    //     $request->validate([
+    //         'nome' => 'required|string|max:255',
+    //         'descricao' => 'required|string|max:1000', // Certifique-se de que este campo está no request
+    //         'data_cadastro' => 'required|date',
+    //         'img' => 'required|url',
+    //     ]);
+
+    //     // Atualiza o item
+    //     $item->nome = $request->nome;
+    //     $item->descricao = $request->descricao;
+    //     $item->data_cadastro = $request->data_cadastro;
+    //     $item->img = $request->img;
+    //     $item->user_id = Auth::user()->id;
+
+    //     $item->save();
+
+    //     return redirect('/item/' . $item->id . '/show')->alert('sucesso item atualizado com sucesso!');
+    // }
+
     public function update(Request $request, Item $item)
     {
         $request->validate([
             'nome' => 'required|string|max:255',
-            'descricao' => 'required|string|max:1000', // Certifique-se de que este campo está no request
+            'descricao' => 'required|string|max:1000',
             'data_cadastro' => 'required|date',
             'img' => 'required|url',
         ]);
@@ -92,7 +113,9 @@ class ItemController extends Controller
 
         $item->save();
 
-        return redirect('/item/' . $item->id . '/show')->alert('sucesso item atualizado com sucesso!');
+        // Simples redirecionamento sem mensagem
+        // return redirect('/item/' . $item->id . '/dashboard');
+        return redirect('/dashboard');
     }
 
     /**

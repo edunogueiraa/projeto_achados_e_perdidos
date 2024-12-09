@@ -19,6 +19,6 @@ class AdmMiddleware
             return $next($request);
         }
         
-        return redirect('/dasboard');
+        return redirect('/dashboard');
     }
 }

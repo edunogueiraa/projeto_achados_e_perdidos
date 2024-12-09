@@ -60,26 +60,40 @@
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark mb-3">
         @auth
-            @yield('links')
-            <form action="{{url('/user/logout')}}" method="POST">
-                @csrf
-                <button class="btn btn-outline-danger ms-3" type="submit">Logout</button>
-            </form>
-            <span class="navbar-brand mx-auto">Achados e Pedidos</span>
-            @if (Auth::user()->type === 'admin')
-                <div>
-                    <a href="/item/create" class="btn btn-outline-light me-3">Registrar Item</a>
-                </div>                    
-            @endif
-        @endauth      
-        @guest
-            <span class="navbar-brand me-auto p-3">Achados e Pedidos</span>
-            <div>
-                <a href="{{url('/user/login')}}" class="btn btn-outline-light me-3">Login</a>
-                <a href="{{url('/user/register')}}" class="btn btn-outline-light me-3">Register</a>
+            <div class="container-fluid d-flex justify-content-between align-items-center">
+                <!-- Links adicionais -->
+                @yield('links')
+    
+                <!-- Centralizar o nome do site -->
+                <span class="navbar-brand mx-auto">Achados e Pedidos</span>
+    
+                <!-- Botão "Sair" -->
+                <form action="{{url('/user/logout')}}" method="POST" class="d-inline">
+                    @csrf
+                    <button class="btn btn-outline-danger" type="submit">Sair</button>
+                </form>
+    
+                <!-- Botão para admin -->
+                @if (Auth::user()->type === 'admin')
+                    <a href="/item/create" class="btn btn-outline-light ms-3">Registrar Item</a>
+                @endif
             </div>
-        @endguest      
+        @endauth  
+    
+        @guest
+            <div class="container-fluid d-flex justify-content-between align-items-center">
+                <!-- Nome do site -->
+                <span class="navbar-brand">Achados e Pedidos</span>
+    
+                <!-- Botões de Login e Cadastro -->
+                <div>
+                    <a href="{{url('/user/login')}}" class="btn btn-outline-light me-3">Entrar</a>
+                    <a href="{{url('/user/register')}}" class="btn btn-outline-light">Cadastrar</a>
+                </div>
+            </div>
+        @endguest  
     </nav>
+    
 
     <main>
         @yield('main', "aqui vem os couteudo do 'main'")
