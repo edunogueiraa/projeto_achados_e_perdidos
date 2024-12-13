@@ -76,6 +76,7 @@
                 <!-- Botão para admin -->
                 @if (Auth::user()->type === 'admin')
                     <a href="/item/create" class="btn btn-outline-light ms-3">Registrar Item</a>
+                    <a href="/relatorio" class="btn btn-outline-light ms-3">Relatório</a>
                 @endif
             </div>
         @endauth  

@@ -13,6 +13,8 @@ use App\Http\Controllers\ItemController;
 use App\Http\Controllers\ComentarioController;
 // Imports dos Models
 use App\Models\Item;
+//Relatório
+use Barryvdh\DomPDF\Facade\Pdf;
 
 // Rotas de Laouts somente para testes
 Route::view('/app', 'layouts.app');
@@ -58,4 +60,22 @@ Route::prefix('item')->middleware(['auth', 'verified'])->controller(ItemControll
     Route::put('/{item}/update', 'update')->middleware(AdmMiddleware::class);
     Route::post('/{item}/coment', [ComentarioController::class, 'store']);
     Route::delete('/{comentario}/coment/delete', [ComentarioController::class, 'destroy']);
+});
+
+// Rota para gerar pdf
+Route::get('/relatorio', function () {
+    $items = Item::all();
+
+    // Calcular informações
+    $total_itens = $items->count();
+    $itens_perdidos = $items->where('objeto_entregue', false)->count();
+
+    // Gerar o PDF
+    $pdf = Pdf::loadView('relatorio', compact(
+        'items',
+        'total_itens',
+        'itens_perdidos'
+    ));
+
+    return $pdf->stream('Relatorio.pdf');// Exibir no navegador
 });
