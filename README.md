@@ -1,3 +1,7 @@
+# Instruções para utilizar o sistema de email
+
+Utilize o mailtrap.io para entrar em contato com o usuário que fez um comentário sobre o item e direcioná-lo para recuperação na COAPAC.
+
 # Instruções para Criar um Usuário Administrador
 
 Email: admin@gmail.com
