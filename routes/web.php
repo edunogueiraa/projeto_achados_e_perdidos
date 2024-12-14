@@ -68,13 +68,11 @@ Route::get('/relatorio', function () {
 
     // Calcular informações
     $total_itens = $items->count();
-    $itens_perdidos = $items->where('objeto_entregue', false)->count();
 
     // Gerar o PDF
     $pdf = Pdf::loadView('relatorio', compact(
         'items',
         'total_itens',
-        'itens_perdidos'
     ));
 
     return $pdf->stream('Relatorio.pdf');// Exibir no navegador

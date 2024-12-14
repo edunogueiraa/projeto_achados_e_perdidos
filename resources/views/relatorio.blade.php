@@ -22,7 +22,6 @@
     <h1>Relatório de Itens</h1>
     <br>
     <p>Total de Itens Cadastrados: {{ $total_itens }}</p>
-    <p>Itens Perdidos: {{ $itens_perdidos }}</p>
     <br>
     <h2>Itens cadastrados no banco:</h2>
     <table>

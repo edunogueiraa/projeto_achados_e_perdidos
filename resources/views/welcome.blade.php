@@ -34,7 +34,7 @@
         .container h3{
             margin-bottom: 10vh;
         }
-        img{
+        .carousel-item img{
             border-radius: 100vh;
             width: 60vh;
             height: 60vh;
@@ -45,20 +45,13 @@
             margin-bottom: 5vh;
         }
 
-        #coapac{
-            background-image: url("{{ asset('img/Coapac.png') }}");
-            background-size: 100%;  /* A imagem cobrirá todo o fundo */
-            background-position: center; /* Centraliza a imagem */
-        }
         
     </style>
 @endsection
 
 @section('main')
-    <!-- Seção 1: Achados e Perdidos -->
-    <section id="coapac" class="section bg-light text-center p-5">
-        
-    </section>
+
+    <img src="img/Coapac.png" class="img-fluid" alt="...">
 
     <!-- Seção 2: Objetivos do Site -->
     <section class="section">
@@ -112,7 +105,7 @@
                 educacionais.
             </p>
             <p style="color: black">
-                Para mais informações, consulte a <a href="LINK_DA_DOCUMENTACAO" target="_blank">documentação do projeto</a>.
+                Para mais informações, consulte o <a href="https://github.com/edunogueiraa/projeto_achados_e_perdidos" target="_blank">repositório do projeto</a>.
             </p>
         </div>
     </section>
